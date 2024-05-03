@@ -1,0 +1,49 @@
+# Player Info API
+
+###
+# @name Add Phone (Mobile)
+POST http://localhost:8080/players/{{playerId}}/phones
+Content-Type: application/json
+
+{
+  "phoneId": {{mobilePhoneId}},
+  "phoneType": "MOBILE",
+  "number": "1112223333",
+  "status": "ACTIVE"
+}
+
+###
+# @name Add Phone (Home)
+POST http://localhost:8080/players/{{playerId}}/phones
+Content-Type: application/json
+
+{
+  "phoneId": {{homePhoneId}},
+  "phoneType": "HOME",
+  "number": "1112223444",
+  "status": "ACTIVE"
+}
+
+###
+# @name Update Phone
+PUT http://localhost:8080/players/{{playerId}}/phones/{{homePhoneId}}
+Content-Type: application/json
+
+{
+  "status": "INACTIVE"
+}
+
+###
+# @name Get Phone (Should return the Home phone inactived above)
+GET http://localhost:8080/players/{{playerId}}/phones/{{homePhoneId}}
+Content-Type: application/json
+
+###
+# @name Get All Phones (Should return both the 2 phones added above)
+GET http://localhost:8080/players/{{playerId}}/phones
+Content-Type: application/json
+
+###
+# @name Delete Phone (Should delete the Home phone inactived above)
+DELETE http://localhost:8080/players/{{playerId}}/phones/{{homePhoneId}}
+Content-Type: application/json
